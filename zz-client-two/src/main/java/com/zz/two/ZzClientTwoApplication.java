@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("com.client.two.comclienttwo.dao")
+@MapperScan("com.zz.two.dao")
 public class ZzClientTwoApplication {
 
     public static void main(String[] args) {

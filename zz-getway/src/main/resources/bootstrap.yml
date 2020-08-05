@@ -6,6 +6,10 @@ spring:
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
+  boot:
+    admin:
+      client:
+        url: 127.0.0.1:8094
     gateway:
       discovery:
         locator:
