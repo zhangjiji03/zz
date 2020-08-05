@@ -1,0 +1,26 @@
+server:
+  port: 8093
+spring:
+  application:
+    name: zz-getway
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: one
+        uri: lb://zz-client-one
+        predicates:
+          - Path=/zz/one/**
+        filters:
+          - StripPrefix=2
+
+      - id: two
+        uri: lb://zz-client-two
+        predicates:
+          - Path=/zz/two/**
+        filters:
+          - StripPrefix=2
