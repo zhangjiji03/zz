@@ -31,6 +31,14 @@ spring:
     admin:
       client:
         url: 127.0.0.1:8094
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 mybatis-plus:
   global-config:
     db-config:
