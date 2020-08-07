@@ -24,15 +24,20 @@ spring:
       min-idle: 0
     port: 6379
     timeout: 1200
-  rabbitmq:
-    host: localhost
-    uername:
-    password:
-    virtual-host:
   boot:
     admin:
       client:
         url: 127.0.0.1:8094
+        username: zz
+        password: zz
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 mybatis-plus:
   global-config:
     db-config:

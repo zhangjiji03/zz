@@ -26,6 +26,7 @@ import java.util.Map;
 public class Init {
     @Autowired
     InitService initService;
+
     @GetMapping("/haha")
     public Map<String,Object> init(){
         System.out.println("成功进入1");

@@ -10,6 +10,8 @@ spring:
     admin:
       client:
         url: 127.0.0.1:8094
+        username: zz
+        password: zz
     gateway:
       discovery:
         locator:

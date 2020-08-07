@@ -3,8 +3,29 @@ server:
 spring:
   application:
     name: zz-admin
+  #安全配置
+  security:
+    user:
+      name: zz
+      password: zz
+  #邮箱配置
+  mail:
+    host: mail.qq.com
+    username: 905552087@qq.com
+    password: #qq邮箱的smtp授权码,非密码
+  boot:
+    admin:
+      notify:
+        mail:
+          to: 905552087@qq.com
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
-
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #启用所有的监控端点
+  endpoint:
+    health:
+      show-details: ALWAYS #一直显示详细的健康信息

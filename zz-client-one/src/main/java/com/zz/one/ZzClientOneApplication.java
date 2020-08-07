@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@MapperScan("com.zz.zzclientone.mapper")
+@MapperScan("com.zz.one.mapper")
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ZzClientOneApplication {

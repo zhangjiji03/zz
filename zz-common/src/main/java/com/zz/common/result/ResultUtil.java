@@ -39,6 +39,14 @@ public class ResultUtil {
         return new Result(ResultStateEnum.ERROR.getCode(),message,null,String.valueOf(System.currentTimeMillis()));
     }
 
+    public static Result common(ResultStateEnum resultStateEnum){
+        return new Result(resultStateEnum.getCode(),resultStateEnum.getMessage(),null,String.valueOf(System.currentTimeMillis()));
+    }
+
+    public static Result common(int code,String message){
+        return new Result(code,message,null,String.valueOf(System.currentTimeMillis()));
+    }
+
     public static Result common(int code,String message,Object data){
         return new Result(code,message,data,String.valueOf(System.currentTimeMillis()));
     }

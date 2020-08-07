@@ -22,15 +22,12 @@ spring:
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
-  rabbitmq:
-    host: localhost
-    uername:
-    password:
-    virtual-host:
   boot:
     admin:
       client:
         url: 127.0.0.1:8094
+        username: zz
+        password: zz
 management:
   endpoints:
     web:
