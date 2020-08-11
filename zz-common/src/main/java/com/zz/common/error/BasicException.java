@@ -1,7 +1,5 @@
 package com.zz.common.error;
 
-
-import com.qbk.boca.bean.ResultStatus;
 import com.zz.common.result.Result;
 import com.zz.common.result.ResultStateEnum;
 import lombok.Data;

@@ -1,9 +1,6 @@
 package com.zz.common.error;
 
 
-import com.qbk.boca.bean.BaseResult;
-import com.qbk.boca.bean.BaseResultUtil;
-import com.qbk.boca.bean.ResultStatus;
 import com.zz.common.result.Result;
 import com.zz.common.result.ResultStateEnum;
 import com.zz.common.result.ResultUtil;
@@ -100,12 +97,12 @@ public class CommonExceptionAdvice {
      */
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(ConstraintViolationException.class)
-    public BaseResult handleServiceException(ConstraintViolationException e) {
+    public Result handleServiceException(ConstraintViolationException e) {
         log.error("参数验证失败", e);
         Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
         ConstraintViolation<?> violation = violations.iterator().next();
         String message = violation.getMessage();
-        return BaseResultUtil.error(message);
+        return ResultUtil.error(message);
     }
 
     /**
