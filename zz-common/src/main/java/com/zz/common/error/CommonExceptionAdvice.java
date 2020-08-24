@@ -21,10 +21,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.xml.bind.ValidationException;
-import java.util.Set;
 
 /**
  * 全局异常处理类
@@ -92,9 +89,9 @@ public class CommonExceptionAdvice {
     }
 
 
-    /**
+   /* *//**
      * 400 - Bad Request
-     */
+     *//*
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(ConstraintViolationException.class)
     public Result handleServiceException(ConstraintViolationException e) {
@@ -103,7 +100,7 @@ public class CommonExceptionAdvice {
         ConstraintViolation<?> violation = violations.iterator().next();
         String message = violation.getMessage();
         return ResultUtil.error(message);
-    }
+    }*/
 
     /**
      * 400 - Bad Request

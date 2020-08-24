@@ -38,10 +38,10 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
-        <dependency>
+      <!--  <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- hibernate validator-->
         <!--<dependency>
             <groupId>org.hibernate</groupId>

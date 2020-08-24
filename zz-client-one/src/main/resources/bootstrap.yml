@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: zz-client-one
+#  thymeleaf:
+#    suffix: .html
+#    prefix: classpath:/templates/
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -22,6 +25,9 @@ spring:
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
   boot:
     admin:
       client:
