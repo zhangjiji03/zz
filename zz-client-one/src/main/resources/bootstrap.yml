@@ -1,5 +1,7 @@
 server:
   port: 8091
+  servlet:
+    context-path: /
 spring:
   application:
     name: zz-client-one
@@ -57,4 +59,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
   mapper-locations: classpath*:mapper/*mapper.xml
-
+#swagger:
+#  basic: false
+#  username: root
+#  password: root

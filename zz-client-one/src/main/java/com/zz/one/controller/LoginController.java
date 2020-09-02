@@ -7,19 +7,20 @@
 
 package com.zz.one.controller;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.zz.common.result.Result;
 import com.zz.common.result.ResultUtil;
 import com.zz.one.entity.User;
 import com.zz.one.mapper.UserMapper;
 import com.zz.one.util.RedisKeys;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 项目名称:     zz-client-one
@@ -27,8 +28,9 @@ import java.util.Date;
  * 创建时间:     2020/8/3 18:25
  * 版本:         1.0
  */
-@RestController
+@Controller
 @RequestMapping("/user")
+@Api(tags = "LoginController", value = "用户登录")
 public class LoginController {
 
     @Autowired
@@ -37,9 +39,10 @@ public class LoginController {
     @Autowired
     UserMapper userMapper;
 
-    @PostMapping("/login")
-    public Result login(@RequestBody User userParam){
-        String token = JWT.create()
+    @GetMapping("/login")
+    @ApiOperation("获取所有品牌列表")
+    public String login(){
+       /* String token = JWT.create()
                 .withExpiresAt(new Date(System.currentTimeMillis()))  //设置过期时间
                 .withAudience("user1") //设置接受方信息，一般时登录用户
                 .sign(Algorithm.HMAC256("111111"));
@@ -52,7 +55,8 @@ public class LoginController {
         }else{
             redisTemplate.opsForValue().set(RedisKeys.user_info_key, user);
             return ResultUtil.error("失败");
-        }
+        }*/
+        return  "haha";
     }
 
     @PostMapping("/logout")

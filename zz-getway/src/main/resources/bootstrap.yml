@@ -26,6 +26,7 @@ spring:
           - Path=/zz/one/**
         filters:
           - StripPrefix=2
+          - SwaggerHeaderFilter  # 指定filter
 
       - id: two
         uri: lb://zz-client-two
@@ -33,3 +34,4 @@ spring:
           - Path=/zz/two/**
         filters:
           - StripPrefix=2
+          - SwaggerHeaderFilter  # 指定filter
