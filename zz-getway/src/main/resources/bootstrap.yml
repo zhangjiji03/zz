@@ -2,36 +2,37 @@ server:
   port: 8093
 spring:
   application:
-    name: zz-getway
+    name: getway
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
+        register-enabled: true
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: one
+          uri: lb://one
+          predicates:
+            - Path=/one/**
+          filters:
+            - StripPrefix=1
+
+        - id: two
+          uri: lb://two
+          predicates:
+            - Path=/two/**
+          filters:
+            - StripPrefix=1
   boot:
     admin:
       client:
         url: 127.0.0.1:8094
         username: zz
         password: zz
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-      - id: one
-        uri: lb://zz-client-one
-        predicates:
-          - Path=/zz/one/**
-        filters:
-          - StripPrefix=2
-          - SwaggerHeaderFilter  # 指定filter
-
-      - id: two
-        uri: lb://zz-client-two
-        predicates:
-          - Path=/zz/two/**
-        filters:
-          - StripPrefix=2
-          - SwaggerHeaderFilter  # 指定filter

@@ -1,10 +1,3 @@
-/**
- * 文件名：SwaggerResourceConfig
- * 作者：张喆
- * 时间：2020/9/1 10:01
- * 描述：
- */
-
 package com.zz.getway.swagger;
 
 import lombok.AllArgsConstructor;

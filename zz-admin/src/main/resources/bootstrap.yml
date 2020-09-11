@@ -2,7 +2,7 @@ server:
   port: 8094
 spring:
   application:
-    name: zz-admin
+    name: admin
   #安全配置
   security:
     user:

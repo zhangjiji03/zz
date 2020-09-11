@@ -1,10 +1,3 @@
-/**
- * 文件名：AuthorizeGatewayFilter
- * 作者：张喆
- * 时间：2020/8/4 18:03
- * 描述：
- */
-
 package com.zz.getway.filter;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -41,3 +34,4 @@ public class AuthorizeGatewayFilter implements GatewayFilter {
         return null;
     }
 }
+

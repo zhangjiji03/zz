@@ -1,14 +1,6 @@
-/**
- * 文件名：SwaggerHandler
- * 作者：张喆
- * 时间：2020/9/1 10:02
- * 描述：
- */
-
-
 package com.zz.getway.swagger;
 
-import com.sun.org.apache.xerces.internal.parsers.SecurityConfiguration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +10,9 @@ import reactor.core.publisher.Mono;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 import springfox.documentation.swagger.web.UiConfiguration;
 import springfox.documentation.swagger.web.UiConfigurationBuilder;
+import com.sun.org.apache.xerces.internal.parsers.SecurityConfiguration;
 
 import java.util.Optional;
-
 
 /**
  * 类名称:        SwaggerHandler
@@ -28,6 +20,7 @@ import java.util.Optional;
  * 版本:          1.0
  * 说明:
  */
+
 
 @RestController
 public class SwaggerHandler {
@@ -63,3 +56,4 @@ public class SwaggerHandler {
         return Mono.just((new ResponseEntity<>(swaggerResources.get(), HttpStatus.OK)));
     }
 }
+

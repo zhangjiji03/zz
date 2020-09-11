@@ -35,8 +35,8 @@ public class InitImpl implements InitService {
 
 
     public List<User> query() {
-         initMapper.selectList(Wrappers.lambdaQuery());
-        return null;
+        return initMapper.selectList(Wrappers.lambdaQuery());
+
     }
 
 }

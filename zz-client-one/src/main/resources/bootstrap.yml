@@ -1,13 +1,8 @@
 server:
   port: 8091
-  servlet:
-    context-path: /
 spring:
   application:
-    name: zz-client-one
-#  thymeleaf:
-#    suffix: .html
-#    prefix: classpath:/templates/
+    name: one
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -26,7 +21,10 @@ spring:
     timeout: 1200
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
+        enabled: true
+        register-enabled: true
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080

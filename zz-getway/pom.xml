@@ -5,7 +5,7 @@
     <groupId>com.zz.getway</groupId>
     <artifactId>zz-getway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zz-getway</name>
+    <name>getway</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -21,6 +21,10 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -7,9 +7,12 @@
 
 package com.zz.two.config;
 
+import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -28,6 +31,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@Import(BeanValidatorPluginsConfiguration.class)
+@EnableSwaggerBootstrapUI
 public class SwaggerConfig {
 
     @Bean
@@ -52,5 +57,43 @@ public class SwaggerConfig {
                 .version("1.0")
                 .build();
     }
+
+
+/*
+    private ApiKey apiKey() {
+        return new ApiKey("BearerToken", "Authorization", "header");
+    }
+
+    private ApiKey apiKey1() {
+        return new ApiKey("BearerToken1", "Authorization-x", "header");
+    }
+
+    private SecurityContext securityContext() {
+        return SecurityContext.builder()
+                .securityReferences(defaultAuth())
+                .forPaths(PathSelectors.regex("/.*"))
+                .build();
+    }
+    private SecurityContext securityContext1() {
+        return SecurityContext.builder()
+                .securityReferences(defaultAuth1())
+                .forPaths(PathSelectors.regex("/.*"))
+                .build();
+    }
+
+    List<SecurityReference> defaultAuth() {
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+        authorizationScopes[0] = authorizationScope;
+        return Lists.newArrayList(new SecurityReference("BearerToken", authorizationScopes));
+    }
+
+    List<SecurityReference> defaultAuth1() {
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+        authorizationScopes[0] = authorizationScope;
+        return Lists.newArrayList(new SecurityReference("BearerToken1", authorizationScopes));
+    }
+*/
 
 }

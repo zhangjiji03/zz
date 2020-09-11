@@ -33,7 +33,7 @@ public class User {
     @TableField("name")
     String name;
 
-    @TableField("age")
-    String age;
+    @TableField("password")
+    String password;
 
 }
