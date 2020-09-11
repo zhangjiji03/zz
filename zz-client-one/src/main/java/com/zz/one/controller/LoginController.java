@@ -9,12 +9,16 @@ package com.zz.one.controller;
 
 import com.zz.common.result.Result;
 import com.zz.common.result.ResultUtil;
+import com.zz.one.entity.User;
 import com.zz.one.mapper.UserMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 项目名称:     zz-client-one
@@ -54,7 +58,6 @@ public class LoginController {
 
     @PostMapping("/logout")
     public Result logout(@RequestBody User userParam){
-        redisTemplate.delete(RedisKeys.user_info_key);
         return ResultUtil.success();
     }
 }
