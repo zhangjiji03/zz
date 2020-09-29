@@ -61,3 +61,14 @@ mybatis-plus:
 #  basic: false
 #  username: root
 #  password: root
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+# 将所有数字转为 String 类型返回，避免前端数据精度丢失的问题
+jackson:
+  generator:
+    write-numbers-as-strings: true

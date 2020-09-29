@@ -10,6 +10,7 @@ package com.zz.one.controller;
 import com.zz.common.result.Result;
 import com.zz.common.result.ResultUtil;
 import com.zz.one.entity.User;
+import com.zz.one.feign.FeignService;
 import com.zz.one.mapper.UserMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,28 +37,28 @@ public class LoginController {
     @Autowired
     UserMapper userMapper;
 
-    @GetMapping("/login")
-    @ApiOperation("获取所有品牌列表")
-    public String login(){
-       /* String token = JWT.create()
-                .withExpiresAt(new Date(System.currentTimeMillis()))  //设置过期时间
-                .withAudience("user1") //设置接受方信息，一般时登录用户
-                .sign(Algorithm.HMAC256("111111"));
+    @Autowired
+    FeignService feignService;
 
-        System.out.println(token);
-        User user=userMapper.selectOne(Wrappers.lambdaQuery(userParam));
-        if(user!=null){
-            redisTemplate.opsForValue().set(RedisKeys.user_info_key+token, user);
-            return ResultUtil.success(token);
-        }else{
-            redisTemplate.opsForValue().set(RedisKeys.user_info_key, user);
-            return ResultUtil.error("失败");
-        }*/
+    @GetMapping("/login")
+    @ApiOperation("用户登录接口")
+    public String login(){
         return  "haha";
     }
 
     @PostMapping("/logout")
+    @ApiOperation("用户退出接口")
     public Result logout(@RequestBody User userParam){
         return ResultUtil.success();
+    }
+
+    @GetMapping("/test")
+    public Result jij(){
+        Result result=feignService.get();
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println();
     }
 }
