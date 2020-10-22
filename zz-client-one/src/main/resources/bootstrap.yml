@@ -4,6 +4,7 @@ spring:
   application:
     name: one
   main:
+    # 解决bean重复定义的。设置为true时，后定义的bean会覆盖之前定义的相同名称的bean
     allow-bean-definition-overriding: true
   datasource:
     druid:
@@ -26,12 +27,34 @@ spring:
       # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除
       test-while-idle: false
       filters: stat,wall
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+          log-slow-sql: true
+          slow-sql-millis: 1
+      # url监控
+      web-stat-filter:
+        enabled: true
+        # 启用session统计
+        session-stat-enable: true
+        exclusions:
+          - "*.js"
+          - "*.gif"
+          - "*.jpg"
+          - "*.png"
+          - "*.css"
+          - "*.ico"
+          - "/druid/*"
+      # 监控信息   localhost:${server.port}/druid/login.html
       stat-view-servlet:
+        # sql监控开关
         enabled: true
         allow: ""
         url-pattern: /druid/*
         login-username: zz
         login-password: zz
+        reset-enable: false
   redis:
     database: 0
     host: 192.168.10.121
@@ -47,18 +70,24 @@ spring:
   cloud:
     nacos:
       discovery:
+        # 服务器地址
         server-addr: 127.0.0.1:8848
         enabled: true
         register-enabled: true
+      config:
+        enabled: true
+        refresh-enabled: true
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080
+  # 监控
   boot:
     admin:
       client:
         url: 127.0.0.1:8094
         username: zz
         password: zz
+# 端点检查
 management:
   endpoints:
     web:
