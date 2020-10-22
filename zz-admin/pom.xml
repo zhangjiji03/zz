@@ -46,6 +46,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.pig4cloud.plugin</groupId>
+            <artifactId>spring-cloud-starter-druid-monitor</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

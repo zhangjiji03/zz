@@ -12,6 +12,7 @@ import com.zz.common.result.ResultUtil;
 import com.zz.one.entity.User;
 import com.zz.one.feign.FeignService;
 import com.zz.one.mapper.UserMapper;
+import com.zz.one.service.TestSeervice;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +41,19 @@ public class LoginController {
     @Autowired
     FeignService feignService;
 
+    @Autowired
+    TestSeervice TestSeervice;
+
     @GetMapping("/login")
     @ApiOperation("用户登录接口")
     public String login(){
+        TestSeervice.Init();
         return  "haha";
+    }
+
+    @GetMapping("/ha")
+    public Result ha(){
+        return TestSeervice.ha();
     }
 
     @PostMapping("/logout")

@@ -7,6 +7,7 @@
 
 package com.zz.one.service;
 
+import com.zz.common.result.Result;
 import com.zz.one.entity.User;
 
 import java.util.List;
@@ -19,4 +20,5 @@ import java.util.List;
  */
 public interface TestSeervice {
     List<User> Init();
+    Result ha();
 }

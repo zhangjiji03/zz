@@ -18,9 +18,16 @@ spring:
       notify:
         mail:
           to: 905552087@qq.com
+      ui:
+        external-views:
+          - label: "SQL监控"
+            url: /druid/sql.html
+            order: 2000
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
+      enabled: true
+      register-enabled: true
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080
@@ -32,3 +39,7 @@ management:
   endpoint:
     health:
       show-details: ALWAYS #一直显示详细的健康信息
+monitor:
+  applications:
+    - one
+    - two

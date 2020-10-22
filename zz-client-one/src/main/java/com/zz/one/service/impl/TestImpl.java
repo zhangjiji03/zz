@@ -7,6 +7,9 @@
 
 package com.zz.one.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.zz.common.result.Result;
+import com.zz.common.result.ResultUtil;
 import com.zz.one.entity.User;
 import com.zz.one.mapper.UserMapper;
 import com.zz.one.service.TestSeervice;
@@ -26,10 +29,17 @@ import java.util.List;
 public class TestImpl implements TestSeervice {
     @Resource
     UserMapper userMapper;
+
     @Override
     public List<User> Init() {
         User user = User.builder().name("垃圾").age("10").build();
         userMapper.insert(user);
         return new ArrayList<>();
+    }
+
+
+    public Result ha(){
+        List list=userMapper.selectList(Wrappers.lambdaQuery());
+        return ResultUtil.success(list);
     }
 }

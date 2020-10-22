@@ -3,22 +3,47 @@ server:
 spring:
   application:
     name: one
+  main:
+    allow-bean-definition-overriding: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: a111
-    url: jdbc:mysql://localhost:3306/sql?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/sql?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+      username: root
+      password: a111
+      # 初始化连接数
+      initial-size: 10
+      # 最小空闲连接
+      min-idle: 5
+      # 最大连接数
+      max-active: 20
+      # 最大等待时间
+      max-wait: 3000
+      # 指明是否从池中取出连接前进行校验，校验失败则从池中去除并尝试获取另一个
+      test-on-borrow: true
+      # 指明是否归还到池中需要校验
+      test-on-return: false
+      # 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除
+      test-while-idle: false
+      filters: stat,wall
+      stat-view-servlet:
+        enabled: true
+        allow: ""
+        url-pattern: /druid/*
+        login-username: zz
+        login-password: zz
   redis:
     database: 0
-    host: 127.0.0.1
-    password:
+    host: 192.168.10.121
+    password: 123456
+    port: 6379
+    timeout: 1200
     pool:
       max-active: 8
       max-idle: 8
       max-wait: -1
       min-idle: 0
-    port: 6379
-    timeout: 1200
+
   cloud:
     nacos:
       discovery:
