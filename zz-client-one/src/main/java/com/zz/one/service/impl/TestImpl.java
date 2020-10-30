@@ -13,6 +13,7 @@ import com.zz.common.result.ResultUtil;
 import com.zz.one.entity.User;
 import com.zz.one.mapper.UserMapper;
 import com.zz.one.service.TestSeervice;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -25,6 +26,7 @@ import java.util.List;
  * 创建时间:     2020/7/31 17:54
  * 版本:         1.0
  */
+@Slf4j
 @Service
 public class TestImpl implements TestSeervice {
     @Resource
@@ -39,7 +41,9 @@ public class TestImpl implements TestSeervice {
 
 
     public Result ha(){
+        log.warn("测试收集日志");
         List list=userMapper.selectList(Wrappers.lambdaQuery());
+        log.info(list.toString());
         return ResultUtil.success(list);
     }
 }

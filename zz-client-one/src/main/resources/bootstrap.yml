@@ -126,3 +126,5 @@ feign:
 jackson:
   generator:
     write-numbers-as-strings: true
+logging:
+  config: classpath:log.xml
