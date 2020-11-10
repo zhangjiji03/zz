@@ -14,9 +14,9 @@ import com.zz.one.entity.User;
 import com.zz.one.mapper.UserMapper;
 import com.zz.one.service.TestSeervice;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +29,7 @@ import java.util.List;
 @Slf4j
 @Service
 public class TestImpl implements TestSeervice {
-    @Resource
+    @Autowired
     UserMapper userMapper;
 
     @Override

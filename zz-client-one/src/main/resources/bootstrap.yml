@@ -6,10 +6,23 @@ spring:
   main:
     # 解决bean重复定义的。设置为true时，后定义的bean会覆盖之前定义的相同名称的bean
     allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        # 服务器地址
+        server-addr: 127.0.0.1:8848
+        enabled: true
+        register-enabled: true
+      config:
+        enabled: true
+        refresh-enabled: true
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/sql?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+      url: jdbc:mysql://localhost:3306/sql?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
       username: root
       password: a111
       # 初始化连接数
@@ -66,20 +79,6 @@ spring:
       max-idle: 8
       max-wait: -1
       min-idle: 0
-
-  cloud:
-    nacos:
-      discovery:
-        # 服务器地址
-        server-addr: 127.0.0.1:8848
-        enabled: true
-        register-enabled: true
-      config:
-        enabled: true
-        refresh-enabled: true
-    sentinel:
-      transport:
-        dashboard: 127.0.0.1:8080
   # 监控
   boot:
     admin:
@@ -126,5 +125,5 @@ feign:
 jackson:
   generator:
     write-numbers-as-strings: true
-logging:
-  config: classpath:log.xml
+#logging:
+#  config: classpath:log.xml
