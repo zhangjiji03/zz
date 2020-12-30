@@ -41,6 +41,6 @@ public class UserController {
     @GetMapping("/logout")
     @ResponseBody
     public Result query(){
-        return userService.query();
+        return userService.logout();
     }
 }
