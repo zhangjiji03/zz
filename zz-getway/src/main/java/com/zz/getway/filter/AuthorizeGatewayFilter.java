@@ -1,23 +1,12 @@
 package com.zz.getway.filter;
 
-import com.zz.common.result.Result;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
-import org.springframework.core.Ordered;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Mono;
-
 /**
  * 项目名称:     zz-getway
  * 类名称:       AuthorizeGatewayFilter
  * 创建时间:     2020/8/4 18:03
  * 版本:         1.0
  */
+/*
 @Component
 public class AuthorizeGatewayFilter implements GlobalFilter, Ordered {
     private static final String AUTHORIZE_TOKEN = "Authorization";
@@ -59,4 +48,5 @@ public class AuthorizeGatewayFilter implements GlobalFilter, Ordered {
         return 0;
     }
 }
+*/
 

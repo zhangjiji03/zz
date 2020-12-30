@@ -8,14 +8,13 @@
 package com.zz.two.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.zz.two.dao.InitMapper;
+import com.zz.common.result.Result;
+import com.zz.common.result.ResultUtil;
+import com.zz.two.mapper.UserMapper;
 import com.zz.two.entity.User;
-import com.zz.two.service.InitService;
+import com.zz.two.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * 项目名称:     com-client-two
@@ -24,19 +23,18 @@ import java.util.List;
  * 版本:         1.0
  */
 @Service
-public class InitImpl implements InitService {
+public class UserServiceImpl implements UserService {
     @Autowired
-    InitMapper initMapper;
+    UserMapper userMapper;
 
     @Override
-    public HashMap<String,Object> init() {
-        return  initMapper.init();
+    public Result login( User user) {
+        userMapper.insert(user);
+        return  ResultUtil.success() ;
     }
 
-
-    public List<User> query() {
-        return initMapper.selectList(Wrappers.lambdaQuery());
-
+    public Result logout() {
+        return ResultUtil.success(userMapper.selectList(Wrappers.lambdaQuery()));
     }
 
 }

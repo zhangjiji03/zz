@@ -89,7 +89,7 @@
         </dependency>
         <dependency>
             <groupId>com.zz.common</groupId>
-            <artifactId>zz-common</artifactId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -152,6 +152,18 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-fescar</artifactId>
+            <version>2.1.0.BUILD-SNAPSHOT</version>
+        </dependency>
+
 <!--        <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
@@ -212,6 +224,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.0.RELEASE</version>
             </plugin>
         </plugins>
 
@@ -230,7 +243,7 @@
         <resources>
             <resource>
                 <targetPath>${project.build.directory}/classes</targetPath>
-                <directory>src/main/java</directory>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>*.xml</include>

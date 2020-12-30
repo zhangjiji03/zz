@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 20201
 spring:
   application:
     name: one
@@ -22,7 +22,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/sql?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+      url: jdbc:mysql://localhost:3306/zz?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
       username: root
       password: a111
       # 初始化连接数
@@ -127,3 +127,18 @@ jackson:
     write-numbers-as-strings: true
 #logging:
 #  config: classpath:log.xml
+seata:
+  enabled: true
+  # 默认
+  data-source-proxy-mode: AT
+  # 事务群组（每个服务可以独立取名，也可以使用相同名字）
+  tx-service-group: one
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      cluster: default
+      group: DEFAULT_GROUP
+      application: seata-server
+
+

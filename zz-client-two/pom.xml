@@ -72,7 +72,7 @@
         </dependency>
         <dependency>
             <groupId>com.zz.common</groupId>
-            <artifactId>zz-common</artifactId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -95,6 +95,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -106,6 +113,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>5.3</version>
+        </dependency>
+
        <!-- <dependency>
             <groupId>org.xmlunit</groupId>
             <artifactId>xmlunit-core</artifactId>
@@ -187,6 +200,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.0.RELEASE</version>
             </plugin>
         </plugins>
 
@@ -196,9 +210,8 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>**/*.yml</include>
-                    <include>**/logback.xml</include>
-                    <include>**/*.properties</include>
+                    <include>*.xml</include>
+                    <include>*.properties</include>
                 </includes>
             </resource>
         </resources>

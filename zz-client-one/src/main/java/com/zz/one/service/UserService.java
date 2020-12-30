@@ -10,15 +10,14 @@ package com.zz.one.service;
 import com.zz.common.result.Result;
 import com.zz.one.entity.User;
 
-import java.util.List;
-
 /**
  * 项目名称:     zz-client-one
  * 类名称:       TestSeervice
  * 创建时间:     2020/7/31 17:53
  * 版本:         1.0
  */
-public interface TestSeervice {
-    List<User> Init();
-    Result ha();
+public interface UserService {
+    Result login();
+    Result logout();
+    Result test(User user);
 }

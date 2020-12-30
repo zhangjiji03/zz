@@ -1,11 +1,9 @@
-package com.zz.two.dao;
+package com.zz.two.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zz.common.result.Result;
 import com.zz.two.entity.User;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 项目名称:     com-client-two
@@ -14,6 +12,6 @@ import java.util.Map;
  * 版本:         1.0
  */
 @Mapper
-public interface InitMapper  extends BaseMapper<User> {
-    HashMap<String,Object> init();
+public interface UserMapper extends BaseMapper<User> {
+    Result login(User user);
 }

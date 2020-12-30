@@ -8,17 +8,15 @@
 package com.zz.two.controller;
 
 import com.zz.common.result.Result;
-import com.zz.common.result.ResultUtil;
 import com.zz.two.entity.User;
-import com.zz.two.service.InitService;
+import com.zz.two.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 项目名称:     com-client-two
@@ -27,24 +25,22 @@ import java.util.List;
  * 版本:         1.0
  */
 @RestController
-@Api(tags = "InitController", value = "微服务文档测试")
-public class Init {
+@Api(tags = "UserController", value = "微服务文档测试")
+public class UserController {
     @Autowired
-    InitService initService;
+    UserService userService;
 
-    @ApiOperation("微服务一")
-    @GetMapping("/haha")
-    public Result init(){
-        System.out.println("成功进入1");
-        return ResultUtil.success();
+    @ApiOperation("用户登录接口")
+    @GetMapping("/login")
+    public Result init(@RequestBody User user){
+        return userService.login(user);
     }
 
 
-    @ApiOperation("微服务2")
-    @GetMapping("/hehe")
+    @ApiOperation("用户退出接口")
+    @GetMapping("/logout")
     @ResponseBody
-    public List<User> query(){
-        System.out.println("成功进入2");
-        return initService.query();
+    public Result query(){
+        return userService.query();
     }
 }

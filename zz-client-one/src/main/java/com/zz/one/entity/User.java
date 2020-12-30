@@ -10,6 +10,8 @@ package com.zz.one.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,13 +28,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("user")
+@ApiModel("用户实体")
 public class User {
     @TableId("id")
+    @ApiModelProperty(value = "id",required = true )
     Integer id;
 
-    @TableField("name")
-    String name;
+    @TableField("username")
+    @ApiModelProperty(value = "用户名",required = true )
+    String username;
 
     @TableField("password")
-    String age;
+    @ApiModelProperty(value = "",required = true)
+    String password;
 }
