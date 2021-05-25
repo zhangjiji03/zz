@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.zz.common.error.CommonExceptionAdvice,\
+com.zz.common.util.IdGenerateConfig,\
+com.zz.common.redis.RedisUtils,\
+com.zz.common.redis.RedisConfig,\
+com.zz.common.config.AsyncConfig,\
+com.zz.common.config.GlobalCorsConfig
